@@ -1,0 +1,53 @@
+body{
+	margin: 0 auto;
+}
+
+.container{
+	display: flex;
+	display: -webkit-flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+.c1, .c2, .c3, .container-inner{
+	width: 100%;
+}
+
+.c1{
+	background-color: rgb(97, 82, 119);
+	height: 100px;
+}
+
+.c2{
+	background-color: rgb(105, 65, 249);
+	height: 400px;
+}
+
+.c3{
+	background-color: rgb(233, 38, 245);
+	height: 400px;
+}
+
+@media (min-width: 500px){
+	.c1{
+		height: 175px;
+	}
+}
+
+@media (min-width: 700px){
+	.c1{
+		/* El 100% del alto del viewport*/
+		height: 100vh;
+		width: 30%;
+	}
+	.container-inner{
+		width: 70%;
+	}
+}
+
+@media (min-width: 800px) {
+	.container{
+		width: 800px;
+		margin: 0 auto;
+	}
+}
