@@ -1,0 +1,38 @@
+body{
+	margin: 0 auto;
+}
+
+.c1{
+	background-color: rgb(97, 82, 119);
+	/*El menu en Mobile permanecera oculto*/
+	/*No se usa display:none. Se usa posiciones para que
+	este y se mostrara con JS*/
+	position: absolute;
+	height: 100vh;
+	width: 250px;
+
+	/*Animaciones para el Swype y que no aparezca de
+	repente (se aplica a la clase hija)*/
+	transition: transform .3s ease-out;
+	-webkit-transition: -webkit-transform .3s ease-out;
+
+	/*Transformacion, esta 250px a la izquierda*/
+	transform: translate(-250px,0);
+	-webkit-transform: translate(-250px,0);
+	
+	/*Aparece por encima de la capa c2*/
+	z-index: 1;
+}
+
+.c1.open{
+	/* Esta transformacion es la que se animara*/
+	transform: translate(0,0);
+	-webkit-transform: translate(0,0);
+}
+
+.c2{
+	background-color: rgb(105, 65, 249);
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+}
