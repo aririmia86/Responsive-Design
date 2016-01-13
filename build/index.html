@@ -4,15 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Mi Página</title>
 	<link rel="stylesheet" href="css/main.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
 	<header class="header">
 		<div class="header-mobile">
 			<h1 class="header-logo">Logo</h1>
-			<button class="header-btn-nav">Menu</button>
+			<button id="btnMenu" class="header-btn-nav">Menu</button>
 		</div>
 		<nav class="header-menu-navbar">
-			<ul class="header-menu-list">
+			<ul id="navbarMenu" class="header-menu-list">
 				<li class="header-menu-list-item">
 					<a href="#">Inicio</a>
 				</li>
@@ -28,5 +29,20 @@
 			</ul>
 		</nav>
 	</header>
+	<script>
+		// Funcion autoejecutable. Se lanzara cuando se cargue 
+		// la pagina
+		(function (){
+			var btnMenu = document.getElementById('btnMenu');
+			var navbarMenu = document.getElementById('navbarMenu');
+			btnMenu.addEventListener('click', onclickMenu);
+
+			function onclickMenu(){
+				navbarMenu.classList.toggle('header-menu-list--show');
+			}
+		}());
+
+
+	</script>
 </body>
 </html>
