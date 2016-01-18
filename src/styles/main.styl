@@ -19,6 +19,10 @@ body
 	z-index 10
 	line-height 64px
 	
+	&--light
+		background-color $white
+		color $black
+	
 	&-mobile
 		display flex
 		justify-content space-between
@@ -56,6 +60,7 @@ body
 				display block
 				
 @import 'video'
+@import 'content'
 
 @media (min-width: 768px)
 	.header

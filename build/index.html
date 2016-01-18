@@ -35,20 +35,62 @@
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/VMp55KH_3wo" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</section>
+		<section class="content-features">
+			<div class="content-block">
+				<h3 class="content-block-text">Feature 1</h3>
+				<p>Lorem Ipsum</p>
+			</div>
+			<div class="content-block">
+				<h3 class="content-block-text">Feature 2</h3>
+				<p>Lorem Ipsum</p>
+			</div>
+			<div class="content-block">
+				<h3 class="content-block-text">Feature 3</h3>
+				<p>Lorem Ipsum</p>
+			</div>
+			<div class="content-block">
+				<h3 class="content-block-text">Feature 4</h3>
+				<p>Lorem Ipsum</p>
+			</div>
+		</section>
+
+		<section class="content-text">
+			<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+		</section>
 	</article>
 	<script>
 		// Funcion autoejecutable. Se lanzara cuando se cargue 
 		// la pagina
 		(function (){
-			var btnMenu = document.getElementById('btnMenu');
-			var navbarMenu = document.getElementById('navbarMenu');
-			btnMenu.addEventListener('click', onclickMenu);
+			
+			// Se lanza cuando el DOM esta completamente cargado
+			document.addEventListener('DOMContentLoaded', onDOMLoad);
 
-			function onclickMenu(){
-				navbarMenu.classList.toggle('header-menu-list--show');
+			// Devuelve solo el primer elemento aunque haya mas
+			var headerElem = document.querySelector('.header');
+
+			headerElem.addEventListener('scroll', onScroll);
+
+			function onScroll () {
+				if(window.scrollY >= 200){
+					headerElem.classList.toggle('.header--light');
+				} else {
+					headerElem.classList.toggle('.header--light');
+				}
 			}
-		}());
 
+			function onDOMLoad () {
+				var btnMenu = document.getElementById('btnMenu');
+				var navbarMenu = document.getElementById('navbarMenu');
+				btnMenu.addEventListener('click', onclickMenu);
+				
+
+				function onclickMenu(){
+					navbarMenu.classList.toggle('header-menu-list--show');
+				}
+			}
+			
+		}());
 
 	</script>
 </body>
