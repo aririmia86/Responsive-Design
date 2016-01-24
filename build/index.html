@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mi Página</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -70,40 +69,6 @@
 			</div>
 		</section>
 	</article>
-	<script>
-		// Funcion autoejecutable. Se lanzara cuando se cargue 
-		// la pagina
-		(function (){
-			
-			// Se lanza cuando el DOM esta completamente cargado
-			document.addEventListener('DOMContentLoaded', onDOMLoad);
-
-			// Devuelve solo el primer elemento aunque haya mas
-			var headerElem = document.querySelector('.header');
-
-			headerElem.addEventListener('scroll', onScroll);
-
-			function onScroll () {
-				if(window.scrollY >= 200){
-					headerElem.classList.toggle('.header--light');
-				} else {
-					headerElem.classList.toggle('.header--light');
-				}
-			}
-
-			function onDOMLoad () {
-				var btnMenu = document.getElementById('btnMenu');
-				var navbarMenu = document.getElementById('navbarMenu');
-				btnMenu.addEventListener('click', onclickMenu);
-				
-
-				function onclickMenu(){
-					navbarMenu.classList.toggle('header-menu-list--show');
-				}
-			}
-			
-		}());
-
-	</script>
+	<script src="./js/bundle.js"></script>
 </body>
 </html>
