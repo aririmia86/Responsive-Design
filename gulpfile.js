@@ -8,6 +8,8 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
+var smoosher = require('gulp-smoosher');
+var imageop = require('gulp-image-optimization');
 
 // Variable de configuracion
 var config = {
@@ -23,6 +25,10 @@ var config = {
 		main: './src/scripts/main.js',
 		watch: './src/scripts/**/*js',
 		output: './build/js'
+	},
+	images: {
+		watch: ['./build/img/*.png','./build/img/*.jpg'],
+		output: './dist/img/'
 	}
 }
 
@@ -56,13 +62,31 @@ gulp.task('build:js', function(){
 		.pipe(gulp.dest(config.scripts.output));
 });
 
-gulp.task('build', ['build:css', 'build:js']);
+gulp.task('images', function(){
+	gulp.src(config.images.watch)
+		.pipe(imageop({
+			optimizationLevel: 5,
+			progressive: true,
+			interlaced: true
+		}))
+		.pipe(gulp.dest(config.images.output));
+});
+
+gulp.task('inline', function(){
+	gulp.src('./build/index.html')
+		.pipe(smoosher())
+		.pipe(gulp.dest('./dist'));
+
+});
+
+gulp.task('build', ['build:css', 'build:js', 'images', 'inline']);
 
 // Vigilante de los cambios
 gulp.task('watch', function(){
 	gulp.watch(config.styles.watch, ['build:css']);
 	gulp.watch(config.html.watch, ['build']);
 	gulp.watch(config.scripts.watch, ['build:js']);
+	gulp.watch(config.images.watch, ['images'])
 })
 
 // Tarea por defecto e indicando en array las tareas que se ejecuten
