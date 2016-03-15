@@ -1,0 +1,37 @@
+table{
+	border: 1px solid #ccc;
+}
+
+tr{
+	width: 100%;
+}
+
+td, th{
+	border: 1px solid #ccc;
+	padding: 1em;
+}
+
+@media screen and (max-width: 550px) {
+	thead,tbody,th,tr,td{
+		display: block;
+	}
+	thead th{
+		/*Ocultar pero sin display none para que los lectores
+		y robots puedan rastrear en el html*/
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	td {
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before{
+		content: attr(data-th);
+		font-weight: bold;
+		position: absolute;
+		left: 6px;
+	}
+}

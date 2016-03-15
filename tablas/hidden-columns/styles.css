@@ -1,0 +1,32 @@
+table{
+	border: 1px solid #ccc;
+}
+
+tr{
+	width: 100%;
+}
+
+td, th{
+	border: 1px solid #ccc;
+	padding: 1em;
+}
+
+.longName{
+	display: none;
+}
+
+.mobile--hidden{
+	display: none;
+}
+
+@media screen and (min-width: 550px){
+	.mobile--hidden{
+		display: table-cell;
+	}
+	.longName{
+		display: inline;
+	}
+	.shortName{
+		display: none;
+	}
+}

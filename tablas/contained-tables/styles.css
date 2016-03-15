@@ -1,0 +1,17 @@
+.contained_table{
+	width: 100%;
+	overflow-x: auto;
+}
+
+table{
+	border: 1px solid #ccc;
+}
+
+tr{
+	width: 100%;
+}
+
+td, th{
+	border: 1px solid #ccc;
+	padding: 1em;
+}
